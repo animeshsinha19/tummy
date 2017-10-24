@@ -1,0 +1,32 @@
+<h2 class="page-header">Search for a restaurant</h2>
+<br>
+
+<form class="form-horizontal">
+    <div class="form-group">
+
+        <div class="col-sm-9">
+            Search restaurants in:
+            <input ng-model="model.location.place" type="text" class="form-control" id="place"
+                   placeholder="city.. like Boston">
+
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-sm-9">
+
+            <button ng-click="model.search(model.location)" class="btn btn-block btn-primary">Search</button>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-9">
+
+            <label ng-show="model.error" class="label label-danger">{{model.error}}</label>
+
+        </div>
+    </div>
+
+
+</form>

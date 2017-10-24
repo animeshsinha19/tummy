@@ -1,0 +1,33 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div id="myHeader" class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Tummy</a>
+            <!--<div class="nav-brand">hello</div>-->
+        </div>
+        <div id="navbar" class="navbar-collapse collapse" ng-controller="HeaderController">
+            <ul class="nav navbar-nav navbar-right">
+
+                <li ng-show="newUser"><a href="#/profile">{{newUser.username}}</a></li>
+
+                <li ng-class="{'active': $location.url() == '/home' }"><a href="#/home">Home <span
+                        class="sr-only">(current)</span></a></li>
+
+                <li ng-show="newUser" ng-class="{'active': $location.url() == '/userinfo' }"><a href="#/userinfo">Profile</a></li>
+                <li ng-show="newUser.roles.indexOf('admin')>=0" ng-class="{'active': $location.url() == '/admin' }"><a href="#/admin">Admin</a></li>
+
+                <li ng-hide="newUser" ng-class="{'active': $location.url() == '/register' }"><a href="#/register">Register</a></li>
+                <li ng-hide="newUser" ng-class="{'active': $location.url() == '/login' }"><a href="#/login">Login</a></li>
+
+                <li ng-click="logoutUser()" ng-show="newUser"><a href="#/home">Logout</a></li>
+            </ul>
+
+        </div>
+    </div>
+</nav>

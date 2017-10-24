@@ -1,0 +1,164 @@
+<div class="row">
+    <ng-map center="[{{model.locationCoords.latitude}}, {{model.locationCoords.longitude}}]">
+        <marker position="[{{model.locationCoords.latitude}}, {{model.locationCoords.longitude}}]"
+                title="Restaurant" centered="true"></marker>
+
+    </ng-map>
+</div>
+
+<br><br>
+
+<div class="row">
+
+    <div class="col-xs-5">
+
+        <div class="row">
+            <img ng-src="{{model.data.image_url}}">
+        </div>
+
+        <br>
+
+        <div class="row">
+            <h4>{{model.data.name}}</h4>
+        </div>
+
+        <br>
+
+        <div class="row">
+            <div ng-show="newUser" ng-switch=model.liked>
+
+                <div ng-switch-when="no">
+
+                    <a ng-click="model.likebtn()">
+                                <span class="glyphicon glyphicon-heart-empty" aria-hidden="true">
+                                </span>
+                    </a>
+
+                </div>
+
+                <div ng-switch-when="yes">
+
+                    <a ng-click="model.likebtn()">
+                            <span class="glyphicon glyphicon-heart" aria-hidden="true">
+                            </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <br>
+
+    </div>
+
+
+    <div class="col-xs-7">
+
+        <div class="row">
+            Address:<br>
+            <div ng-repeat="a in model.address">
+                {{a}}
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row">
+            <h5>{{model.data.display_phone}}</h5>
+        </div>
+
+        <br>
+
+        <div class="row">
+            <img ng-src="{{model.data.rating_img_url_large}}">
+        </div>
+
+        <br>
+
+    </div>
+
+    <br>
+
+
+</div>
+
+<br><br>
+
+<div class="row">
+
+    <div class="col-xs-5">
+
+        <div class="row">
+            <label>Users who liked this restaurant</label>
+        </div>
+
+    </div>
+
+    <div class="col-xs-7">
+
+        <div class="row" ng-hide="newUser">
+            <div ng-repeat="user in model.users">
+                {{user.firstName}}
+            </div>
+        </div>
+
+        <div class="row" ng-show="newUser">
+            <div ng-repeat="user in model.users">
+                <a href="#/follow/{{user.userId}}"> {{user.firstName}} </a>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<br><br>
+
+<div class="row">
+    <!--<div class="col-xs-12">-->
+    <h3>Reviews</h3>
+    {{model.data.reviews[0].excerpt}}
+
+    <!--</div>-->
+</div>
+
+<br><br>
+
+<div class="row" ng-show="newUser">
+    <h3>Comment about the restaurant</h3>
+    <textarea ng-model="model.comments" class="form-control"></textarea> &nbsp; <br>
+    <label class="label-danger">{{model.error}}</label>
+    <br>
+    <button ng-click="model.comment(model.comments)" class="btn btn-block btn-primary">Comment</button>
+
+</div>
+
+<div class="row" ng-hide="newUser">
+    <h4>Please <a href="#/login"> login </a> to review this restaurant and follow other users</h4>
+    <h4>Not registered yet? <a href="#/register">Register here!</a></h4>
+
+</div>
+<br><br>
+
+
+<div class="row" ng-hide="newUser">
+    <h3>Other Reviews</h3>
+    <div ng-repeat="n in model.allComments">
+        {{n.firstname}}:<br>
+        {{n.comments}}
+        <br><br>
+    </div>
+
+</div>
+
+<div class="row" ng-show="newUser">
+    <h3>Other Reviews</h3>
+    <div ng-repeat="n in model.allComments">
+        <a href="/follow/{{n.userId}}"> {{n.firstname}} </a> :<br>
+        {{n.comments}}
+        <br><br>
+    </div>
+
+</div>
+
+
+<br><br>

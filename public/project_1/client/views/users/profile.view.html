@@ -1,0 +1,62 @@
+<h1 class="page-header">Profile</h1>
+
+<ul class="nav nav-tabs">
+    <li><a href="#/userinfo">User Information</a></li>
+    <li class="active"><a href="#">Profile Information</a></li>
+
+</ul>
+
+<br>
+
+<form class="form-horizontal">
+    <div class="form-group">
+        <label for="inputUsername" class="col-sm-2 control-label">Username</label>
+        <div class="col-sm-7">
+            <input ng-model="model.username" type="text" class="form-control" id="inputUsername" placeholder="Username">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="inputPassword" class="col-sm-2 control-label">Password</label>
+        <div class="col-sm-7">
+            <input ng-model="model.password" type="password" class="form-control" id="inputPassword"
+                   placeholder="Password">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="inputFirstname" class="col-sm-2 control-label">First Name</label>
+        <div class="col-sm-7">
+            <input ng-model="model.firstname" type="text" class="form-control" id="inputFirstname"
+                   placeholder="First Name">
+        </div>
+        <div class="col-sm-3">
+            <label ng-show="model.firstnameerror" class="label label-danger">{{model.firstnameerror}}</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="inputLastname" class="col-sm-2 control-label">Last Name</label>
+        <div class="col-sm-7">
+            <input ng-model="model.lastname" type="text" class="form-control" id="inputLastname"
+                   placeholder="Last Name">
+        </div>
+        <div class="col-sm-3">
+            <label ng-show="model.lastnameerror" class="label label-danger">{{model.lastnameerror}}</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="inputEmail" class="col-sm-2 control-label">Email</label>
+        <div class="col-sm-7">
+            <input ng-model="model.email" type="email" class="form-control" id="inputEmail" placeholder="Email">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-7">
+            <button ng-click="model.update(model)" class="btn btn-block btn-primary">Update</button>
+        </div>
+    </div>
+</form>
+
+

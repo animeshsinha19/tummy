@@ -1,0 +1,16 @@
+<h1 class="page-header">Reviews by {{model.firstName}}</h1>
+<div class="row" ng-repeat="comment in model.allComments">
+    <div class="col-xs-3">
+        {{comment.restaurantName}} &nbsp;
+    </div>
+
+    <div class="col-xs-6">
+        {{comment.comment}}
+    </div>
+    <div class="col-xs-3">
+        <button ng-click="model.deleteComment($index)" class="btn btn-block btn-danger">Delete Comment</button>
+    </div>
+    <br>
+    <br>
+    <br>
+</div>

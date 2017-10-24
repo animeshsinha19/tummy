@@ -1,0 +1,62 @@
+<h1 class="page-header">User Information</h1>
+
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#">User Information</a></li>
+    <li><a href="#/profile">Profile Information</a></li>
+
+</ul>
+
+<br>
+
+<form class="form-horizontal">
+
+    <div class="row">
+        <div class="col-xs-2"><label>Username</label></div>
+
+        <div class="col-xs-4">
+            {{model.username}}
+        </div>
+
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-xs-2"><label>Full Name</label></div>
+
+        <div class="col-xs-4">
+            {{model.firstname}} {{model.lastname}}
+        </div>
+
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-xs-2"><label>Email</label></div>
+
+        <div class="col-xs-4">
+            {{model.email}}
+        </div>
+
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-xs-2"><label>Liked Restaurants</label></div>
+
+        <div class="col-xs-4">
+            <div ng-repeat="res in model.restaurants">
+                <a href="#/details/{{res.restaurantId}}">{{res.restaurantName}}</a>
+
+            </div>
+        </div>
+
+    </div>
+    <br>
+    <div class="row" ng-show="model.userNameAndIds">
+        <div class="col-xs-2"><label>Followed Users: </label></div>
+        <div class="col-xs-4">
+            <div ng-repeat="user in model.userNameAndIds">
+                <a href="#/follow/{{user.userId}}">{{user.username}}</a>
+
+            </div>
+        </div>
+    </div>
+
+</form>

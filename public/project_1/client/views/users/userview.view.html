@@ -1,0 +1,49 @@
+<div class="row">
+    <h3>User Profile</h3>
+</div>
+<hr>
+
+<div class="row">
+    <div class="col-xs-3">
+        <div ng-switch=model.isFollowed>
+            <div ng-switch-when="no">
+                <button class="btn btn-block btn-primary" ng-click="model.follow()">Follow User</button>
+            </div>
+            <div ng-switch-when="yes">
+                <button class="btn btn-block btn-danger" ng-click="model.unfollow()">Unfollow User</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<br><br>
+
+<div class="row">
+    <h4>Name : </h4>
+    {{model.username}}
+</div>
+
+<div class="row">
+    <h4>Email : </h4>
+    {{model.email}}
+</div>
+
+<div class="row">
+    <h4>Liked : </h4>
+    <div ng-repeat="like in model.likes">
+        <a href="#/details/{{like.yelpId}}"> {{like.restaurantName}} </a>
+    </div>
+</div>
+
+<div class="row">
+    <h4>Reviewed : </h4>
+    <div ng-repeat="review in model.reviews">
+        <a href="#/details/{{review.yelpId}}"> {{review.restaurantName}} </a> : {{review.comment}}
+    </div>
+</div>
+
+
+<div>
+
+</div>
